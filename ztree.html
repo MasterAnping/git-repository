@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="gbk">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/jstree/3.3.8/themes/default/style.min.css" rel="stylesheet">
+	
+	<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/jstree/3.3.8/jstree.min.js"></script>
+	<script src="./wangEditor.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1>你好，世界！</h1>
+ <div id="editor">
+        <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+    </div>
+
+  
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">
+  Launch demo modal1
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title1</h4>
+      </div>
+      <div class="modal-body">
+       <div id="jstree1"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+		<button type="button" id="button1" class="btn btn-primary">选择气象要素</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+  Launch demo modal2
+</button>
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title2</h4>
+      </div>
+      <div class="modal-body">
+       <div id="jstree2"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+		<button type="button" id="button2" class="btn btn-primary">选择地区</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button id="a1" type="button" class="btn btn-primary btn-lg">insert</button>
+
+<div id = 'htmlDiv'></div>
+<button id="getHtml" type="button" class="btn btn-primary btn-lg">获取HTML</button>
+
+
+
+  </body>
+<script type="text/javascript">
+
+ var E = window.wangEditor
+        //var editor = new E('#editor')
+         var editor = new E( document.getElementById('editor') )
+        editor.create()
+
+ $('#jstree1').jstree({
+    'core': {
+	"check_callback" : true,
+	"themes" : { "stripes" : true ,"variant" : "large"},
+        'data' : [
+           { "id" : "1", "parent" : "#", "text" : "铅山县","a_attr":{"regionId":"361124"} ,'state' : {  'selected' : false }, },
+		   { "id" : "2", "parent" : "1", "text" : "铅山县(国家站)","a_attr":{"staId":"58629"} ,'state' : {  'selected' : false }, },
+           { "id" : "3", "parent" : "1", "text" : "河口镇" ,"a_attr":{"staId":"J2224"},'state' : {  'selected' : false },},
+           { "id" : "4", "parent" : "1", "text" : "永平镇","a_attr":{"staId":"hebei"},'state' : {  'selected' : false },},
+           { "id" : "5", "parent" : "1", "text" : "石塘镇","a_attr":{"staId":"shijiazhuang"},'state' : {  'selected' : false },},
+           { "id" : "6", "parent" : "1", "text" : "鹅湖镇","a_attr":{"staId":"beijing"} ,'state' : {  'selected' : false },},
+		   { "id" : "7", "parent" : "1", "text" : "湖坊镇","a_attr":{"staId":"beijing"} ,'state' : {  'selected' : false },},
+		   { "id" : "8", "parent" : "1", "text" : "武夷山镇","a_attr":{"staId":"beijing"} ,'state' : {  'selected' : false },},
+		   { "id" : "9", "parent" : "1", "text" : "汪二镇","a_attr":{"staId":"beijing"} ,'state' : {  'selected' : false },},
+		   { "id" : "10", "parent" : "1", "text" : "陈坊乡","a_attr":{"staId":"beijing"} ,'state' : {  'selected' : false },},
+		   { "id" : "11", "parent" : "1", "text" : "虹桥乡","a_attr":{"staId":"beijing"} ,'state' : {  'selected' : false },},
+		   { "id" : "12", "parent" : "1", "text" : "新滩乡","a_attr":{"staId":"beijing"} ,'state' : {  'selected' : false },},
+		   { "id" : "13", "parent" : "1", "text" : "葛仙山乡","a_attr":{"staId":"beijing"} ,'state' : {  'selected' : false },},
+		   { "id" : "14", "parent" : "1", "text" : "稼轩乡","a_attr":{"staId":"beijing"} ,'state' : {  'selected' : false },},
+		   { "id" : "15", "parent" : "1", "text" : "英将乡","a_attr":{"staId":"beijing"} ,'state' : {  'selected' : false },},
+		   { "id" : "16", "parent" : "1", "text" : "紫溪乡","a_attr":{"staId":"beijing"} ,'state' : {  'selected' : false },},
+		   { "id" : "17", "parent" : "1", "text" : "太源畲族乡","a_attr":{"staId":"beijing"} ,'state' : {  'selected' : false },},
+		   { "id" : "18", "parent" : "1", "text" : "天柱山乡","a_attr":{"staId":"beijing"} ,'state' : {  'selected' : false },},
+		   { "id" : "19", "parent" : "#", "text" : "篁碧畲族乡","a_attr":{"staId":"beijing"} ,'state' : {  'selected' : false },}
+        ]
+    }, "plugins" : [
+	"checkbox",
+	"contextmenu",
+	"dnd",
+	"massload",
+	"search",
+	"wholerow"
+]
+});
+
+ $('#jstree2').jstree({
+    'core': {
+	"check_callback" : true,
+	"themes" : { "stripes" : true ,"variant" : "large"},
+        'data' : [
+           { "id" : "1", "parent" : "#", "text" : "降水量","a_attr":{"name":"rain"} ,'state' : {  'selected' : false }, },
+           { "id" : "2", "parent" : "1", "text" : "平均" ,"a_attr":{"name":"rain","method":"avg","desc":"平均降水量为："},'state' : {  'selected' : false },},
+           { "id" : "3", "parent" : "1", "text" : "最大","a_attr":{"name":"rain","method":"max","desc":"最大降水量为："},'state' : {  'selected' : false },},
+           { "id" : "4", "parent" : "#", "text" : "气温","a_attr":{"name":"tem"},'state' : {  'selected' : false },},
+           { "id" : "5", "parent" : "4", "text" : "平均" ,"a_attr":{"name":"tem","method":"avg"},'state' : {  'selected' : false },},
+           { "id" : "6", "parent" : "4", "text" : "最大","a_attr":{"name":"tem","method":"max"},'state' : {  'selected' : false },}
+		  
+        ]
+    }, "plugins" : [
+	"checkbox",
+	"contextmenu",
+	"dnd",
+	"massload",
+	"search",
+	"wholerow"
+]
+});
+
+$("#button1").click(function(){	
+	$("#myModal1").modal('hide');
+	$("#myModal2").modal('show');
+});
+
+$("#button2").click(function(){	
+	$("#myModal2").modal('hide');
+	$("#myModal1").modal('show');
+});
+
+$("#getHtml").click(function(){	
+	$('#htmlDiv').text(editor.txt.html());
+});
+
+$("#a1").click(function(){
+	var string = "";
+	var regionIdsString = "";
+	var staIdsString = "";
+	var regions = $('#jstree1').jstree(true).get_top_checked(true);
+	alert(regions.length);
+	var stations = $('#jstree1').jstree(true).get_bottom_checked(true);
+	alert(stations.length);
+	if(regions.length>0){
+		$.each(regions,function(i,o){
+		alert(o.text);
+			regionIdsString = regionIdsString + o.a_attr.regionId;
+		})
+	} else{
+		$.each(stations,function(i,o){
+			staIdsString = staIdsString + o.a_attr.staId;
+		})
+	}
+	var nodes = $('#jstree2').jstree(true).get_checked(true);
+	$.each(nodes,function(i,o){
+		if(o.parent!="#" && o.parent!=null){
+			string = string + o.a_attr.desc +"<z1 staIds = '"+ +"' ><span style='text-decoration-line: underline;'>"+ i+"</span></z1>"+"mm,";
+		}
+	//alert(JSON.stringify(a));
+});	
+		
+	editor.cmd.do('insertHTML', string+"。<p><br></p>");
+})
+
+/*$("#button1").click(function(){
+
+$.each($('#jstree1').jstree(true).get_checked(true),function(i,a){
+	alert(JSON.stringify(a));
+	alert(a.a_attr.look);
+});
+});*/
+  </script>
+</html>
